@@ -23,7 +23,7 @@ const unsetAuthedUserActionCreator = () => {
 const asyncAuthedUserAndSetAccesToken = async ({ email, password }) => {
   const token = await api.login({ email, password });
   api.setAccessToken(token);
-  return api.getOwnProfile();
+  return await api.getOwnProfile();
 };
 
 const setAuthUser = ({ email, password }) => {

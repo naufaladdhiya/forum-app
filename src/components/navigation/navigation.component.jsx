@@ -1,10 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { MdLeaderboard } from "react-icons/md";
-
 import { useSelector } from "react-redux";
 
-const Navigation = () => {
+import { MdLeaderboard, MdLogout } from "react-icons/md";
+import { BsChatLeft } from "react-icons/bs";
+import { AiOutlinePlusSquare } from "react-icons/ai";
+
+const Navigation = ({ onLogOut }) => {
   const authedUser = useSelector((state) => state.authedUser);
 
   return (
@@ -14,14 +16,30 @@ const Navigation = () => {
       </h1>
       <div>
         {authedUser && (
-          <ul className="flex flex-row gap-8 text-xl font-medium cursor-pointer">
-            <li>Threads</li>
-            <li className="flex items-center">
+          <ul className="flex flex-row gap-8 text-lg font-bold cursor-pointer ">
+            <li className="flex items-center transition transform hover:scale-125">
+              <BsChatLeft className="mr-1" />
+              <Link to="/">Threads</Link>
+            </li>
+            <li className="flex items-center transition transform hover:scale-125">
               <MdLeaderboard className="mr-1" />
               <Link to="/leaderboards">Leaderboards</Link>
             </li>
-            <li>Create</li>
-            <li>Logout</li>
+            <li className="flex items-center transition transform hover:scale-125">
+              <AiOutlinePlusSquare className="mr-1" />
+              Create
+            </li>
+            <li className="transition transform hover:scale-125">
+              <button
+                onClick={() => {
+                  onLogOut();
+                }}
+                className="flex items-center"
+              >
+                <MdLogout className="mr-1" />
+                Logout
+              </button>
+            </li>
           </ul>
         )}
       </div>
