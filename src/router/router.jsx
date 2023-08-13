@@ -8,6 +8,7 @@ import ThreadsPage from "../pages/threads.pages";
 import LoginInput from "../components/form/loginInput.component";
 import LeaderboardsPage from "../pages/leaderboard.pages";
 import ThreadDetailPage from "../pages/threadsDetail.pages";
+import AddThreadsPage from "../pages/addThreads.pages";
 
 const Router = () => {
   const { authedUser = null, isPreload = false } = useSelector(
@@ -28,6 +29,7 @@ const Router = () => {
           <Route path="/leaderboards" element={<LeaderboardsPage />} />
           <Route path="*" element={<ThreadsPage />} />
           <Route path="/threads/:id" element={<ThreadDetailPage />} />
+          <Route path="/threads/new" element={<AddThreadsPage />} />
         </>
       )}
     </Routes>

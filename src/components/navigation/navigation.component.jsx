@@ -27,7 +27,7 @@ const Navigation = ({ onLogOut }) => {
             </li>
             <li className="flex items-center transition transform hover:scale-125">
               <AiOutlinePlusSquare className="mr-1" />
-              Create
+              <Link to="/threads/new">Create</Link>
             </li>
             <li className="transition transform hover:scale-125">
               <button
