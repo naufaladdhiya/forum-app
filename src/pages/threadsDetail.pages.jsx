@@ -3,13 +3,23 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 
-import { getThreadDetail, createComment } from "../states/threadsDetail/action";
+import {
+  getThreadDetail,
+  createComment,
+  upVoteThreadDetail,
+  downVoteThreadDetail,
+  neutralizeVoteThreadDetail,
+  upVoteThreadComment,
+  downVoteThreadComment,
+  neutralizeVoteThreadComment,
+} from "../states/threadsDetail/action";
 
 import ThreadDetail from "../components/threads/threadDetail/threadDetail.component";
+import CommentList from "../components/comment/commentList";
 
 const ThreadDetailPage = () => {
   const { id } = useParams();
-  const { threadDetail = [], authedUser } = useSelector((states) => states);
+  const { threadDetail = null, authedUser } = useSelector((states) => states);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -22,6 +32,69 @@ const ThreadDetailPage = () => {
 
   const handleCommentCreate = (content) => {
     dispatch(createComment({ threadId: id, content }));
+  };
+
+  const handleUpVoteDetail = (threadId) => {
+    dispatch(
+      upVoteThreadDetail({
+        threadId,
+        userId: authedUser.id,
+        currentVoteType: "up-vote",
+      })
+    );
+  };
+
+  const handleDownVoteDetail = (threadId) => {
+    dispatch(
+      downVoteThreadDetail({
+        threadId,
+        userId: authedUser.id,
+        currentVoteType: "down-vote",
+      })
+    );
+  };
+
+  const neutralizeVoteDetail = (threadId) => {
+    dispatch(
+      neutralizeVoteThreadDetail({
+        threadId,
+        userId: authedUser.id,
+        currentVoteType: "neutral-vote",
+      })
+    );
+  };
+
+  const handleUpVoteComment = ({ threadId, commentId }) => {
+    dispatch(
+      upVoteThreadComment({
+        threadId,
+        commentId,
+        userId: authedUser.id,
+        currentVoteType: "up-vote",
+      })
+    );
+  };
+
+  const handleDownVoteComment = ({ threadId, commentId }) => {
+    dispatch(
+      downVoteThreadComment({
+        threadId,
+        commentId,
+        userId: authedUser.id,
+        currentVoteType: "down-vote",
+      })
+    );
+  };
+
+  const handleNeutralizeVoteComment = ({ threadId, commentId }) => {
+    dispatch(
+      neutralizeVoteThreadComment({
+        threadId,
+        commentId,
+        userId: authedUser.id,
+        currentVoteType: "neutral-vote",
+      })
+    );
   };
 
   const {
@@ -45,10 +118,21 @@ const ThreadDetailPage = () => {
         body={body}
         category={category}
         owner={owner}
-        authedUser={authedUser}
+        authedUser={authedUser.id}
         upVotes={upVotes}
         downVotes={downVotes}
-        key={id}
+        onUpVote={handleUpVoteDetail}
+        onDownVote={handleDownVoteDetail}
+        onNeutralizeVote={neutralizeVoteDetail}
+      />
+
+      <CommentList
+        threadId={threadId}
+        comments={comments}
+        authedUser={authedUser.id}
+        onUpVote={handleUpVoteComment}
+        onDownVote={handleDownVoteComment}
+        onNeutralizeVote={handleNeutralizeVoteComment}
       />
     </div>
   );

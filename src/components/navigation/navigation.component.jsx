@@ -12,7 +12,7 @@ const Navigation = ({ onLogOut }) => {
   return (
     <nav className="w-full flex justify-between min-h-[100px] py-9 items-center">
       <h1 className="text-xl font-bold">
-        <Link to="/">ForumApp</Link>
+        <Link to="/">TalksSpace</Link>
       </h1>
       <div>
         {authedUser && (

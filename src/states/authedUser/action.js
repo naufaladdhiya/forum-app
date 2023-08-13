@@ -47,4 +47,4 @@ const unsetAuthUser = () => {
   };
 };
 
-export { ActionTypes, setAuthUser, unsetAuthUser };
+export { ActionTypes, setAuthUser, unsetAuthUser, setAuthedUserActionCreator };

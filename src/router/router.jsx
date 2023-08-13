@@ -1,6 +1,8 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+
+import { setPreload } from "../states/preLoad/action";
 
 import ThreadsPage from "../pages/threads.pages";
 import LoginInput from "../components/form/loginInput.component";
@@ -8,7 +10,15 @@ import LeaderboardsPage from "../pages/leaderboard.pages";
 import ThreadDetailPage from "../pages/threadsDetail.pages";
 
 const Router = () => {
-  const authedUser = useSelector((states) => states.authedUser);
+  const { authedUser = null, isPreload = false } = useSelector(
+    (states) => states
+  );
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(setPreload());
+  }, [dispatch]);
 
   return (
     <Routes>

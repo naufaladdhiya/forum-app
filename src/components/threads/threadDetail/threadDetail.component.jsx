@@ -46,16 +46,16 @@ const ThreadDetail = ({
           </div>
         </div>
         <section className="mt-4 font-medium text-base">{parser(body)}</section>
-        <div className="flex gap-2 mt-4 cursor-pointer text-xl">
+        <div className="flex gap-3 mt-4 cursor-pointer text-xl font-bold">
           <div
-            className="flex gap-1"
+            className="flex gap-1 items-center"
             onClick={() => (isUpVoted ? onNeutralizeVote(id) : onUpVote(id))}
           >
             {isUpVoted ? <FaThumbsUp /> : <FaRegThumbsUp />}{" "}
             <span>{upVotes.length}</span>
           </div>
           <div
-            className="flex gap-1"
+            className="flex gap-1 items-center"
             onClick={() =>
               isDownVoted ? onNeutralizeVote(id) : onDownVote(id)
             }

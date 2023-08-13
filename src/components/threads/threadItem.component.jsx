@@ -15,7 +15,7 @@ const ThreadItem = ({
   totalComments,
 }) => {
   return (
-    <li className="mt-5 hover:bg-blue-100 p-5 hover:opacity-90 transition delay-75">
+    <li className="mt-5 hover:bg-blue-100 p-5 hover:opacity-90 transition delay-75 border border-black-1">
       <Link to={`threads/${id}`}>
         <article>
           <div className="font-bold text-xl border-2 border-black inline-block p-2">
