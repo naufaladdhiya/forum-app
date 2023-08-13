@@ -10,16 +10,17 @@ const LoginInput = () => {
 
   const dispatch = useDispatch();
 
-  const onLogin = () => {
+  const onLogin = (event) => {
+    event.preventDefault();
     dispatch(setAuthUser({ email, password }));
   };
 
   return (
     <div className="flex justify-center flex-col items-center">
       <h1 className="text-2xl font-bold">Login</h1>
-      <form className="flex flex-col gap-4 mt-8 w-1/2">
+      <form className="flex flex-col gap-4 mt-8 w-1/2" onSubmit={onLogin}>
         <input
-          type="text"
+          type="email"
           id={email}
           value={email}
           onChange={onEmailChange}
@@ -34,8 +35,7 @@ const LoginInput = () => {
           className="px-2 py-3 border-2 border-gray-600"
         />
         <button
-          type="button"
-          onClick={onLogin}
+          type="submit"
           className="p-2 border-2 border-gray-600 rounded-xl bg-slate-400 text-white font-bold"
         >
           Login
