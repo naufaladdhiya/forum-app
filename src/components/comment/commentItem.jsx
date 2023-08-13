@@ -33,12 +33,12 @@ const CommentItem = ({
             <img src={owner.avatar} alt={owner.name} className="rounded-full" />
             <div className="flex flex-col ml-3">
               <p className="font-bold">{owner.name}</p>
-              <p className="text-gray-400 mt-2">{showFormattedDate(date)}</p>
-              <section className="mt-4">{parser(content)}</section>
+              <p className="text-gray-400">{showFormattedDate(date)}</p>
+              <section className="mt-2">{parser(content)}</section>
             </div>
           </div>
         </div>
-        <div className="flex gap-3 cursor-pointer text-xl font-bold">
+        <div className="flex gap-3 cursor-pointer text-xl font-bold mt-3">
           <div
             className="flex gap-1 items-center"
             onClick={() =>

@@ -14,4 +14,24 @@ const getsThreadsActionCreator = (threads) => {
   };
 };
 
-export { ActionTypes, getsThreadsActionCreator };
+const createThreadsActionCreator = (thread) => {
+  return {
+    type: ActionTypes.CREATE_THREAD,
+    payload: {
+      thread,
+    },
+  };
+};
+
+const createThread = ({ title, body, category }) => {
+  return async (dispatch) => {
+    try {
+      const thread = await api.createThread({ title, body, category });
+      dispatch(createThreadsActionCreator(thread));
+    } catch (error) {
+      alert(error.message);
+    }
+  };
+};
+
+export { ActionTypes, getsThreadsActionCreator, createThread };

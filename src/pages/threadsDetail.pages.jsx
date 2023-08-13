@@ -16,6 +16,7 @@ import {
 
 import ThreadDetail from "../components/threads/threadDetail/threadDetail.component";
 import CommentList from "../components/comment/commentList";
+import CommentForm from "../components/form/commentInput.component";
 
 const ThreadDetailPage = () => {
   const { id } = useParams();
@@ -125,6 +126,8 @@ const ThreadDetailPage = () => {
         onDownVote={handleDownVoteDetail}
         onNeutralizeVote={neutralizeVoteDetail}
       />
+
+      <CommentForm onCommentCreate={handleCommentCreate} />
 
       <CommentList
         threadId={threadId}
