@@ -12,7 +12,7 @@ const CommentList = ({
 }) => {
   return (
     <div className="mt-6">
-      <h1 className="font-bold text-xl">Komentar ({comments.length})</h1>
+      <h1 className="font-bold text-lg">Komentar ({comments.length})</h1>
       <ul>
         {comments.map((comment) => (
           <CommentItem

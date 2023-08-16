@@ -12,14 +12,17 @@ const CommentForm = ({ onCommentCreate }) => {
 
   return (
     <div className="flex justify-center flex-col items-center">
-      <form className="flex flex-col gap-4 mt-8 w-1/2" onSubmit={handleSubmit}>
+      <form
+        className="flex flex-col gap-4 mt-8 w-full md:w-1/2"
+        onSubmit={handleSubmit}
+      >
         <input
           type="text"
           id={comment}
           value={comment}
           onChange={onCommentChange}
           placeholder="Berikan Komentar"
-          className="input input-lg input-bordered border-gray-600 min-h-[200px] border border-black-1 pb-40 px-2"
+          className="input input-lg input-bordered border-gray-600 min-h-[200px] border border-black-1 pb-40 px-2 bg-blue-100 bg-opacity-50"
         />
         <button
           type="submit"

@@ -13,7 +13,7 @@ const getUsersActionCreator = (users) => {
   };
 };
 
-const getUsers = ({ name, email, password }) => {
+const registerUser = ({ name, email, password }) => {
   return async (dispatch) => {
     try {
       await api.register({ name, email, password });
@@ -23,4 +23,4 @@ const getUsers = ({ name, email, password }) => {
   };
 };
 
-export { ActionTypes, getUsersActionCreator, getUsers };
+export { ActionTypes, getUsersActionCreator, registerUser };

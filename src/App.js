@@ -4,6 +4,7 @@ import { useDispatch } from "react-redux";
 import { unsetAuthUser } from "./states/authedUser/action";
 
 import Router from "./router/router";
+import Layout from "./layout/layout.component";
 import Navigation from "./components/navigation/navigation.component";
 import "./App.css";
 
@@ -15,7 +16,7 @@ const App = () => {
   };
 
   return (
-    <div className="container mx-auto">
+    <Layout>
       <header>
         <Navigation onLogOut={handleLogout} />
       </header>
@@ -23,7 +24,7 @@ const App = () => {
       <main>
         <Router />
       </main>
-    </div>
+    </Layout>
   );
 };
 

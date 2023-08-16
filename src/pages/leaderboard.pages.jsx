@@ -16,13 +16,15 @@ const LeaderboardsPage = () => {
 
   return (
     <div>
-      <h1 className="mt-10 text-3xl font-bold text-center">Leaderboards</h1>
-      <div className="flex justify-between">
-        <p className="text-2xl font-medium text-gray-400 flex items-center">
+      <h1 className="mt-10 text-xl md:text-2xl lg:text-3xl font-bold text-center">
+        Leaderboards
+      </h1>
+      <div className="flex justify-between mt-3">
+        <p className="text-base md:text-xl lg:text-2xl font-medium text-gray-400 flex items-center">
           <AiOutlineUser className="mr-2" />
           Pengguna
         </p>
-        <p className="text-2xl font-medium text-gray-400 flex items-center">
+        <p className="text-base md:text-xl lg:text-2xl font-medium text-gray-400 flex items-center">
           <AiOutlineStar className="mr-2" />
           Poin
         </p>

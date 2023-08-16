@@ -11,8 +11,9 @@ const ThreadsPage = () => {
 
   const threadList = threads.map((thread) => ({
     ...thread,
-    owner: users.find((user) => user.id === thread.ownerId),authedUser
-  }))
+    owner: users.find((user) => user.id === thread.ownerId),
+    authedUser,
+  }));
 
   useEffect(() => {
     dispatch(getUsersAndThreads());
@@ -20,7 +21,9 @@ const ThreadsPage = () => {
 
   return (
     <div>
-      <h1 className="text-center text-3xl my-6 font-bold">Diskusi Tersedia</h1>
+      <h1 className="text-center text-2xl my-6 font-bold md:text-2xl">
+        Diskusi Tersedia
+      </h1>
       <ThreadList threads={threadList} />
     </div>
   );

@@ -35,20 +35,24 @@ const ThreadDetail = ({
       </div>
 
       <div className="flex justify-between mt-6">
-        <h1 className="mt-2 text-3xl font-bold">{title}</h1>
+        <h1 className="mt-2 text-md font-bold md:text-xl xl:text-2xl">
+          {title}
+        </h1>
       </div>
       <div className="mt-5">
         <div className="flex">
           <img src={owner.avatar} alt={owner.name} className="rounded-full" />
-          <div className="flex flex-col ml-3">
+          <div className="flex flex-col ml-3 text-sm md:text-base">
             <p className="font-bold">{owner.name}</p>
             <p className="text-gray-400 mt-2">{showFormattedDate(date)}</p>
           </div>
         </div>
-        <section className="mt-4 font-medium text-base">{parser(body)}</section>
-        <div className="flex gap-3 mt-4 cursor-pointer text-xl font-bold">
+        <section className="mt-4 font-medium text-sm md:text-base">
+          {parser(body)}
+        </section>
+        <div className="flex gap-3 mt-4 cursor-pointer text-base md:text-xl font-bold">
           <div
-            className="flex gap-1 items-center"
+            className="flex gap-1 items-center "
             onClick={() => (isUpVoted ? onNeutralizeVote(id) : onUpVote(id))}
           >
             {isUpVoted ? <FaThumbsUp /> : <FaRegThumbsUp />}{" "}

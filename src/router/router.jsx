@@ -6,6 +6,7 @@ import { setPreload } from "../states/preLoad/action";
 
 import ThreadsPage from "../pages/threads.pages";
 import LoginInput from "../components/form/loginInput.component";
+import RegisterInput from "../components/form/registerInput.component";
 import LeaderboardsPage from "../pages/leaderboard.pages";
 import ThreadDetailPage from "../pages/threadsDetail.pages";
 import AddThreadsPage from "../pages/addThreads.pages";
@@ -23,7 +24,12 @@ const Router = () => {
 
   return (
     <Routes>
-      {authedUser === null && <Route path="*" element={<LoginInput />} />}
+      {authedUser === null && (
+        <>
+          <Route path="*" element={<LoginInput />} />
+          <Route path="/register" element={<RegisterInput />} />
+        </>
+      )}
       {authedUser && (
         <>
           <Route path="/leaderboards" element={<LeaderboardsPage />} />

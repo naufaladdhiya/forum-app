@@ -18,13 +18,15 @@ const ThreadItem = ({
     <li className="mt-5 hover:bg-blue-100 p-5 hover:opacity-90 transition delay-75 border border-black-1">
       <Link to={`threads/${id}`}>
         <article>
-          <div className="font-bold text-xl border-2 border-black inline-block p-2">
+          <div className="font-bold text-base border-2 border-black inline-block p-2 md:text-2xl">
             {category}
           </div>
 
-          <div className="flex justify-between">
-            <h1 className="mt-2 text-2xl font-bold">{title}</h1>
-            <p className="flex items-center gap-1 font-medium">
+          <div className="flex justify-between items-center gap-2">
+            <div className="mt-2 text-md font-bold md:text-xl xl:text-2xl">
+              {title}
+            </div>
+            <p className="flex items-center gap-1 font-medium text-sm md:text-base">
               <BsChat />
               {totalComments}
             </p>
@@ -36,12 +38,14 @@ const ThreadItem = ({
                 alt={owner.name}
                 className="rounded-full"
               />
-              <div className="flex flex-col ml-3">
+              <div className="flex flex-col ml-3 text-sm md:text-base">
                 <p className="font-bold">{owner.name}</p>
                 <p className="text-gray-400 mt-2">{showFormattedDate(date)}</p>
               </div>
             </div>
-            <section className="mt-4 line-clamp-1">{parser(body)}</section>
+            <section className="mt-4 line-clamp-1 text-sm md:text-base">
+              {parser(body)}
+            </section>
           </div>
         </article>
       </Link>
