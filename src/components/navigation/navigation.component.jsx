@@ -10,7 +10,7 @@ const Navigation = ({ onLogOut }) => {
   const authedUser = useSelector((state) => state.authedUser);
 
   return (
-    <nav className="w-full flex flex-col justify-between min-h-[100px] py-9 items-center md:flex-row">
+    <nav className="w-full flex flex-col justify-between min-h-[100px] py-9 items-center md:flex-row container mx-auto">
       <h1 className="text-xl font-bold text-center">
         <Link to="/">TalksSpace</Link>
       </h1>

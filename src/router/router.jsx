@@ -12,9 +12,7 @@ import ThreadDetailPage from "../pages/threadsDetail.pages";
 import AddThreadsPage from "../pages/addThreads.pages";
 
 const Router = () => {
-  const { authedUser = null, isPreload = false } = useSelector(
-    (states) => states
-  );
+  const { authedUser = null } = useSelector((states) => states);
 
   const dispatch = useDispatch();
 
